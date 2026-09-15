@@ -204,8 +204,9 @@ class TilePuzzle(object):
 ############################################################
 # Section 2: Grid Navigation
 ############################################################
-def find_path(start, goal, scene):
 
+
+def find_path(start, goal, scene):
 
     if scene[start[0]][start[1]]:
         return None
@@ -290,7 +291,6 @@ def find_path(start, goal, scene):
 
 
 def solve_distinct_disks(length, n):
-
 
     start = []
     for i in range(length):
