@@ -29,9 +29,10 @@ def create_tile_puzzle(rows, cols):
         ans.append(lst_i)
     return ans
 
+
 class TilePuzzle(object):
-    
-    # Required
+
+
     def __init__(self, board):
         self.board = board
         self.rows = len(board)
@@ -57,7 +58,7 @@ class TilePuzzle(object):
                 self.board[self.empty_row][self.empty_col] = temp
                 self.empty_row = new_row
                 return True
-            
+
         if direction == 'down':
             new_row = self.empty_row + 1
             if 0 <= new_row < self.rows:
@@ -68,7 +69,7 @@ class TilePuzzle(object):
                 self.board[self.empty_row][self.empty_col] = temp
                 self.empty_row = new_row
                 return True
-        
+
         if direction == 'left':
             new_col = self.empty_col - 1
             if 0 <= new_col < self.cols:
@@ -79,7 +80,7 @@ class TilePuzzle(object):
                 self.board[self.empty_row][self.empty_col] = temp
                 self.empty_col = new_col
                 return True
-        
+
         if direction == 'right':
             new_col = self.empty_col + 1
             if 0 <= new_col < self.cols:
@@ -90,7 +91,7 @@ class TilePuzzle(object):
                 self.board[self.empty_row][self.empty_col] = temp
                 self.empty_col = new_col
                 return True
-        return False   
+        return False
 
     def scramble(self, num_moves):
         directions = ["up", "down", "left", "right"]
@@ -105,7 +106,7 @@ class TilePuzzle(object):
 
     def copy(self):
         new_one = []
-    
+
         for i in range(self.rows):
             row = []
             for j in range(self.cols):
@@ -138,7 +139,7 @@ class TilePuzzle(object):
                 return
 
             limit += 1
-    
+
     def iddfs_helper(self, limit, moves):
         if self.is_solved():
             yield moves
@@ -146,14 +147,14 @@ class TilePuzzle(object):
 
         if limit == 0:
             return
-            
+
         for direction, new_puzzle in self.successors():
             new_moves = moves + [direction]
             yield from new_puzzle.iddfs_helper(limit - 1, new_moves)
 
-
     # Required
     def find_solution_a_star(self):
+
         queue = PriorityQueue()
         visited = set()
         order = 0
@@ -188,7 +189,6 @@ class TilePuzzle(object):
                         (f, order, new_puzzle, new_moves)
                     )
 
-    
     def Manhattan_helper(self):
         distance = 0
 
@@ -203,14 +203,9 @@ class TilePuzzle(object):
                                 distance += abs(row - i) + abs(col - j)
                                 break
         return distance
-
-
-
 ############################################################
 # Section 2: Grid Navigation
 ############################################################
-
-
 def find_path(start, goal, scene):
     if scene[start[0]][start[1]]:
         return None
@@ -292,7 +287,6 @@ def find_path(start, goal, scene):
 ############################################################
 # Section 3: Linear Disk Movement, Revisited
 ############################################################
-
 
 def solve_distinct_disks(length, n):
     start = []
@@ -404,7 +398,6 @@ def solve_distinct_disks(length, n):
 # Section 4: Feedback
 ############################################################
 
- 
 # Just an approximation is fine.
 feedback_question_1 = """
 12
