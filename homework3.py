@@ -31,8 +31,6 @@ def create_tile_puzzle(rows, cols):
 
 
 class TilePuzzle(object):
-
-
     def __init__(self, board):
         self.board = board
         self.rows = len(board)
@@ -207,6 +205,8 @@ class TilePuzzle(object):
 # Section 2: Grid Navigation
 ############################################################
 def find_path(start, goal, scene):
+
+
     if scene[start[0]][start[1]]:
         return None
 
@@ -288,7 +288,10 @@ def find_path(start, goal, scene):
 # Section 3: Linear Disk Movement, Revisited
 ############################################################
 
+
 def solve_distinct_disks(length, n):
+
+
     start = []
     for i in range(length):
         if i < n:
@@ -397,6 +400,7 @@ def solve_distinct_disks(length, n):
 ############################################################
 # Section 4: Feedback
 ############################################################
+
 
 # Just an approximation is fine.
 feedback_question_1 = """
